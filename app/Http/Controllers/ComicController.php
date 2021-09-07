@@ -12,7 +12,7 @@ class ComicController extends Controller
 {
      public function comics() {
 
-         $comics = Comic::all() ;
+         $comics = Comic::all();
         $data = ['volumi' => $comics];
          return view('comics', $data);
      }
