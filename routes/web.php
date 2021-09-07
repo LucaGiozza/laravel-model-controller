@@ -16,21 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'StaticController@index' 
 )->name('personaggi');
 
- Route::get('/comics', function () {
-
-    $comics = config('comics-database');
-    $data = ['volumi' => $comics];
-     return view('comics', $data);
- })->name('fumetti');
+ Route::get('/comics','ComicController@comics' )->name('fumetti');
 
 //  rotta dei dettagli
 
- Route::get('/detail/{id}', function ($id) {
-    $comics = config('comics-database');
-    $data = ['volumi' => $comics[$id]];
-
-    return view('dettaglio', $data);
-})->name('dettaglio-comics');
+ Route::get('/detail/{id}', 'ComicController@dettaglio' )->name('dettaglio-comics');
 
 
 
